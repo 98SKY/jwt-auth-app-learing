@@ -2,7 +2,7 @@ import axios from "axios";
 import { logoutAndRedirect } from "./authUtils";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8081/api",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 axiosInstance.interceptors.request.use(
@@ -20,7 +20,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      logoutAndRedirect(); // force logout
+      logoutAndRedirect(); 
     }
     return Promise.reject(error);
   }
