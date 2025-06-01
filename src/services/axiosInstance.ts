@@ -1,11 +1,10 @@
 import axios from "axios";
+import { logoutAndRedirect } from "./authUtils";
 
-// Create a new Axios instance
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8081/api", // your API base URL
+  baseURL: "http://localhost:8081/api",
 });
 
-// Add a request interceptor to attach token
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -15,6 +14,16 @@ axiosInstance.interceptors.request.use(
     return config;
   },
   (error) => Promise.reject(error)
+);
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      logoutAndRedirect(); // force logout
+    }
+    return Promise.reject(error);
+  }
 );
 
 export default axiosInstance;
