@@ -1,5 +1,6 @@
+import Cookies from "js-cookie";
+
 export const logoutAndRedirect = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login"; 
-  };
-  
+  Cookies.remove("token");
+  window.location.href = "/login"; 
+};

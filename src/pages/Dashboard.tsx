@@ -9,8 +9,8 @@ const Dashboard: React.FC = () => {
       <h2>Dashboard</h2>
       {user ? (
         <>
-          <p>Welcome, <strong>{user.name}</strong>!</p>
-          <p>Email: {user.email}</p>
+          <p>Welcome, <strong>{user.role}</strong>!</p>
+          {/* <p>Email: {user.}</p> */}
           <button onClick={logout}>Logout</button>
         </>
       ) : (
