@@ -5,11 +5,10 @@ export interface User {
   iat: number;
 }
 
-  
-  export interface AuthContextType {
-    user: User | null;
-    login: (token: string) => void;
-    logout: () => void;
-    loading: boolean;
-  }
-  
+
+export interface AuthContextType {
+  user: User | null;
+  login: (token: string) => void;
+  logout: () => void;
+  loading: boolean;
+}

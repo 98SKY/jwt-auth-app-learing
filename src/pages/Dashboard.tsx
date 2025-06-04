@@ -1,22 +1,11 @@
-import React from "react";
-import { useAuth } from "../context/AuthContext";
+import DashboardLayout from "../components/layout/DashboardLayout";
+import DashboardContent from "../components/dashboard/DashboardContent";
 
-const Dashboard: React.FC = () => {
-  const { user, logout } = useAuth();
-
+const Dashboard = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Dashboard</h2>
-      {user ? (
-        <>
-          <p>Welcome, <strong>{user.role}</strong>!</p>
-          {/* <p>Email: {user.}</p> */}
-          <button onClick={logout}>Logout</button>
-        </>
-      ) : (
-        <p>Loading user info...</p>
-      )}
-    </div>
+    <DashboardLayout>
+      <DashboardContent />
+    </DashboardLayout>
   );
 };
 

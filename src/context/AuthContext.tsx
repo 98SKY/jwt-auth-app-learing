@@ -11,7 +11,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = (token: string) => {
     Cookies.set("token", token, {
-      expires: 1, // expires in 1 day
+      expires: 1,
       secure: true,
       sameSite: "strict"
     });

@@ -21,7 +21,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      logoutAndRedirect(); 
+      logoutAndRedirect();
     }
     return Promise.reject(error);
   }
